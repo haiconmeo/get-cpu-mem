@@ -15,6 +15,11 @@ type Metric struct {
 }
 
 func sendData(w http.ResponseWriter, r *http.Request) {
+	apiKey := r.Header.Get("x-api-key")
+	if !authori(apiKey) {
+		w.WriteHeader(http.StatusUnauthorized)
+		return
+	}
 	v, _ := mem.VirtualMemory()
 	percent, _ := cpu.Percent(time.Second, false)
 
@@ -23,6 +28,10 @@ func sendData(w http.ResponseWriter, r *http.Request) {
 	result.Cpu = percent[0]
 	a, _ := json.Marshal(result)
 	w.Write(a)
+
+}
+func authori(apiKey string) bool {
+	return apiKey == ""
 
 }
 func main() {
