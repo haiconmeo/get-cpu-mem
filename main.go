@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 	"time"
 
@@ -31,12 +32,15 @@ func sendData(w http.ResponseWriter, r *http.Request) {
 
 }
 func authori(apiKey string) bool {
-	return apiKey == ""
+	return apiKey == "q_EaTiX+xbBXLyO05.+zDXjI+Qi_X0v"
 
 }
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/metric", sendData)
-	http.ListenAndServe(":4545", mux)
+	err := http.ListenAndServe(":80", mux)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 }
