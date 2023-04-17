@@ -32,7 +32,7 @@ func sendData(w http.ResponseWriter, r *http.Request) {
 
 }
 func authori(apiKey string) bool {
-	return apiKey == "q_EaTiX+xbBXLyO05.+zDXjI+Qi_X0v"
+	return apiKey == ""
 
 }
 func main() {
