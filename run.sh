@@ -1,7 +1,9 @@
 echo $(pwd)
-chmod +x ./bin/main_ubuntu
-sudo cp ./bin/main_ubuntu /usr/local/bin
-sudo cp ./config/metric.service /etc/systemd/system
+wget https://cloud-bot.s3.ap-southeast-1.amazonaws.com/tools/main_ubuntu
+chmod +x ./main_ubuntu
+sudo cp ./main_ubuntu /usr/local/bin
+wget https://cloud-bot.s3.ap-southeast-1.amazonaws.com/tools/metric.service
+sudo cp ./metric.service /etc/systemd/system
 cd /etc/systemd/system
 sudo chmod 664 metric.service 
 sudo systemctl daemon-reload   
