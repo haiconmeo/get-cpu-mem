@@ -1,4 +1,4 @@
-echo pwd
+echo $(pwd)
 chmod +x ./bin/main_ubuntu
 sudo mv ./bin/main_ubuntu /usr/local/bin
 sudo mv ./config/metric.service /etc/systemd/system
