@@ -1,0 +1,7 @@
+[Unit]
+Description= This is a simple time logger agent
+[Service]
+Type=simple 
+ExecStart=/usr/bin/main_ubutnu
+[Install]
+WantedBy=multi-user.target
